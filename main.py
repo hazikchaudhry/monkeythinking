@@ -86,7 +86,7 @@ while cap.isOpened():
     meme_resized = cv2.resize(meme_image, (frame_width, frame_height))
     combined = np.hstack([meme_resized, frame])
     
-    cv2.imshow('Hand Landmarker', combined)
+    cv2.imshow('Think Monke', combined)
 
     if cv2.waitKey(5) & 0xFF == ord('q'):
         break
