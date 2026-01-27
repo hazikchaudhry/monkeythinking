@@ -62,12 +62,21 @@ while cap.isOpened():
             pinky_tip = hand[20]
             pinky_pip = hand[18]
 
+            #thumb_tip = hand[4]
+            #index_figner_mcp = hand[5]
+
+
 
             index_extended = index_tip.y < index_pip.y
             middle_folded = middle_tip.y > middle_pip.y
             ring_folded = ring_tip.y > ring_pip.y
             pinky_folded = pinky_tip.y > pinky_pip.y
 
+            ##thumb_position = thumb_tip.x < index_figner_mcp.x
+
+            #if thumb_position:
+                #thumb_status = "Thumbs Up"
+                #meme_image = cv2.imread("meme/thinking.png")
             if index_extended and middle_folded and ring_folded and pinky_folded:
                 gesture_text = "POINTING!"
                 meme_image = cv2.imread("meme/pointing.png")
