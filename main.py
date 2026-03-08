@@ -4,11 +4,6 @@ import numpy as np
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
-meme_image = cv2.imread("meme/staring.png")
-if meme_image is None:
-    print("Error: Could not load meme image")
-    exit()
-
 base_options = python.BaseOptions(model_asset_path='hand_landmarker.task')
 
 options = vision.HandLandmarkerOptions(
@@ -19,6 +14,12 @@ options = vision.HandLandmarkerOptions(
     min_tracking_confidence = 0.6)
 
 landmarker = vision.HandLandmarker.create_from_options(options)
+
+
+meme_image = cv2.imread("meme/staring.png")
+if meme_image is None:
+    print("Error: Could not load meme image")
+    exit()
 
 # Try camera index 1 if 0 doesn't work
 cap = cv2.VideoCapture(1)
