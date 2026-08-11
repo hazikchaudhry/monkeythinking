@@ -37,7 +37,6 @@ fi
 echo ""
 echo "Setup complete. To get started:"
 echo "  Fill in starter_code.py, then: uv run python starter_code.py"
-echo "  Or work through workshop_simple.ipynb in Jupyter."
 echo ""
 echo "Want to see the finished version? uv run python solutions/solution.py"
 echo ""

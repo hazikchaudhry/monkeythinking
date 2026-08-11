@@ -36,7 +36,6 @@ if ($missing) {
 Write-Host ""
 Write-Host "Setup complete. To get started:"
 Write-Host "  Fill in starter_code.py, then: uv run python starter_code.py"
-Write-Host "  Or work through workshop_simple.ipynb in Jupyter."
 Write-Host ""
 Write-Host "Want to see the finished version? uv run python solutions/solution.py"
 Write-Host ""
