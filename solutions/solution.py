@@ -1,17 +1,20 @@
-import cv2 
-import mediapipe as mp 
+import cv2
+import mediapipe as mp
 import numpy as np
+from pathlib import Path
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
+ASSETS = Path(__file__).resolve().parent.parent
+
 # Load the default meme image
-meme_image = cv2.imread("meme/staring.png")
+meme_image = cv2.imread(str(ASSETS / "meme" / "staring.png"))
 if meme_image is None:
     print("Error: Could not load meme image")
     exit()
 
 # Setup hand detection model
-base_options = python.BaseOptions(model_asset_path='hand_landmarker.task')
+base_options = python.BaseOptions(model_asset_path=str(ASSETS / "models" / "hand_landmarker.task"))
 
 options = vision.HandLandmarkerOptions(
     base_options = base_options,
@@ -87,10 +90,10 @@ while cap.isOpened():
             
             # Check for pointing gesture and load appropriate meme
             if index_extended and middle_folded and ring_folded and pinky_folded:
-                meme_image = cv2.imread("meme/pointing.png")
+                meme_image = cv2.imread(str(ASSETS / "meme" / "pointing.png"))
             else:
-                meme_image = cv2.imread("meme/staring.png")
-            
+                meme_image = cv2.imread(str(ASSETS / "meme" / "staring.png"))
+
             # Draw green circles on all hand landmarks
             for lm in hand:
                 h, w, _ = frame.shape
@@ -98,7 +101,7 @@ while cap.isOpened():
                 cv2.circle(frame, (cx, cy), 5, (0, 255, 0), -1)
     else:
         # No hands detected - show default meme
-        meme_image = cv2.imread("meme/staring.png")
+        meme_image = cv2.imread(str(ASSETS / "meme" / "staring.png"))
     
     # Resize meme to match frame size
     frame_height, frame_width = frame.shape[:2]

@@ -25,7 +25,7 @@ pip install -r requirements.txt
 Write-Host ""
 Write-Host "Checking required assets..."
 $missing = $false
-foreach ($f in @("hand_landmarker.task", "meme\staring.png", "meme\pointing.png", "meme\thinking.png")) {
+foreach ($f in @("models\hand_landmarker.task", "meme\staring.png", "meme\pointing.png", "meme\thinking.png")) {
     if (-not (Test-Path $f)) {
         Write-Host "  MISSING: $f"
         $missing = $true
@@ -40,11 +40,12 @@ if ($missing) {
 }
 
 Write-Host ""
-Write-Host "Setup complete. To run it:"
+Write-Host "Setup complete. To get started:"
 Write-Host "  .venv\Scripts\Activate.ps1"
-Write-Host "  python main.py"
+Write-Host "  Fill in starter_code.py, then: python starter_code.py"
+Write-Host "  Or work through workshop_simple.ipynb in Jupyter."
 Write-Host ""
-Write-Host "Or work through workshop_simple.ipynb in Jupyter."
+Write-Host "Want to see the finished version? python solutions/solution.py"
 Write-Host ""
 Write-Host "If PowerShell blocks script execution, run once per terminal session:"
 Write-Host "  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass"

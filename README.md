@@ -26,17 +26,30 @@ This prints a one-line install command if you don't have [uv](https://docs.astra
 
 No uv, or can't install it? Use `./setup-pip.sh` (or `.\setup-pip.ps1` on Windows) instead — same checks, plain `venv` + `pip install -r requirements.txt`.
 
+## Project Layout
+
+- **Start here**: `starter_code.py` (fill in the blanks) or `workshop_simple.ipynb` (guided, step-by-step walkthrough in Jupyter) — everything you need to begin is at the top level.
+- **`solutions/`**: finished/reference code. `solution.py` is the answer key for `starter_code.py`; `main.py` is an earlier working draft of the same thing. You don't need this folder to get started — it's there if you're stuck or want to check your work.
+
 ## Usage
 
+Fill in the blanks in `starter_code.py`, then:
+
 ```bash
-uv run python main.py
+uv run python starter_code.py
 ```
 
-Fallback path: `source .venv/bin/activate` (Windows: `.venv\Scripts\Activate.ps1`), then `python main.py`.
+Or work through `workshop_simple.ipynb` in Jupyter instead — same app, guided step-by-step.
+
+Want to see the finished version, or check your work against it?
+
+```bash
+uv run python solutions/solution.py
+```
+
+Fallback path (no uv): `source .venv/bin/activate` (Windows: `.venv\Scripts\Activate.ps1`), then `python starter_code.py` (or `python solutions/solution.py`).
 
 Press 'q' to quit.
-
-Prefer a guided, step-by-step walkthrough? Open `workshop_simple.ipynb` in Jupyter instead. There's also a `starter_code.py` / `solution.py` pair if you'd rather build it yourself in a plain script.
 
 ## Features
 

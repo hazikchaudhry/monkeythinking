@@ -19,7 +19,7 @@ uv sync
 Write-Host ""
 Write-Host "Checking required assets..."
 $missing = $false
-foreach ($f in @("hand_landmarker.task", "meme\staring.png", "meme\pointing.png", "meme\thinking.png")) {
+foreach ($f in @("models\hand_landmarker.task", "meme\staring.png", "meme\pointing.png", "meme\thinking.png")) {
     if (-not (Test-Path $f)) {
         Write-Host "  MISSING: $f"
         $missing = $true
@@ -34,10 +34,11 @@ if ($missing) {
 }
 
 Write-Host ""
-Write-Host "Setup complete. To run it:"
-Write-Host "  uv run python main.py"
+Write-Host "Setup complete. To get started:"
+Write-Host "  Fill in starter_code.py, then: uv run python starter_code.py"
+Write-Host "  Or work through workshop_simple.ipynb in Jupyter."
 Write-Host ""
-Write-Host "Or work through workshop_simple.ipynb in Jupyter."
+Write-Host "Want to see the finished version? uv run python solutions/solution.py"
 Write-Host ""
 Write-Host "If PowerShell blocks script execution, run once per terminal session:"
 Write-Host "  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass"

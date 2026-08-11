@@ -9,7 +9,7 @@ from mediapipe.tasks.python import vision
 
 
 # Setup hand detection
-base_options = python.BaseOptions(model_asset_path='hand_landmarker.task')
+base_options = python.BaseOptions(model_asset_path='models/hand_landmarker.task')
 
 options = vision.HandLandmarkerOptions(
     base_options = base_options,

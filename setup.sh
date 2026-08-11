@@ -20,7 +20,7 @@ uv sync
 echo ""
 echo "Checking required assets..."
 missing=0
-for f in hand_landmarker.task meme/staring.png meme/pointing.png meme/thinking.png; do
+for f in models/hand_landmarker.task meme/staring.png meme/pointing.png meme/thinking.png; do
     if [ ! -f "$f" ]; then
         echo "  MISSING: $f"
         missing=1
@@ -35,10 +35,11 @@ else
 fi
 
 echo ""
-echo "Setup complete. To run it:"
-echo "  uv run python main.py"
+echo "Setup complete. To get started:"
+echo "  Fill in starter_code.py, then: uv run python starter_code.py"
+echo "  Or work through workshop_simple.ipynb in Jupyter."
 echo ""
-echo "Or work through workshop_simple.ipynb in Jupyter."
+echo "Want to see the finished version? uv run python solutions/solution.py"
 echo ""
 echo "If the camera window doesn't open: on macOS, allow camera access when prompted"
 echo "(or check System Settings > Privacy & Security > Camera), and close apps like"

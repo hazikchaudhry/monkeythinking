@@ -1,5 +1,6 @@
 import time
 from collections import deque
+from pathlib import Path
 
 import cv2
 import mediapipe as mp
@@ -7,6 +8,8 @@ import numpy as np
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 from PIL import Image, ImageSequence
+
+ASSETS = Path(__file__).resolve().parent.parent
 
 WRIST, MIDDLE_MCP = 0, 9
 
@@ -70,7 +73,7 @@ def blendshape_score(blendshapes, name):
 
 
 # Initialize the hand landmark detection model
-base_options = python.BaseOptions(model_asset_path='hand_landmarker.task')
+base_options = python.BaseOptions(model_asset_path=str(ASSETS / "models" / "hand_landmarker.task"))
 
 options = vision.HandLandmarkerOptions(
     base_options = base_options,
@@ -82,7 +85,7 @@ options = vision.HandLandmarkerOptions(
 landmarker = vision.HandLandmarker.create_from_options(options)
 
 # Initialize the face landmark model (gives us blendshape scores like "jawOpen")
-face_base_options = python.BaseOptions(model_asset_path='face_landmarker.task')
+face_base_options = python.BaseOptions(model_asset_path=str(ASSETS / "models" / "face_landmarker.task"))
 
 face_options = vision.FaceLandmarkerOptions(
     base_options = face_base_options,
@@ -93,11 +96,11 @@ face_options = vision.FaceLandmarkerOptions(
 face_landmarker = vision.FaceLandmarker.create_from_options(face_options)
 
 # Decode every gif up front; the loop just picks a frame out of whichever list is active
-wait_frames, wait_durations = load_gif("meme/wait.gif")
+wait_frames, wait_durations = load_gif(str(ASSETS / "meme" / "wait.gif"))
 wait_total = sum(wait_durations)
-cooking_frames, cooking_durations = load_gif("meme/cooking.gif")
+cooking_frames, cooking_durations = load_gif(str(ASSETS / "meme" / "cooking.gif"))
 cooking_total = sum(cooking_durations)
-tongue_frames, tongue_durations = load_gif("meme/tounge.gif")
+tongue_frames, tongue_durations = load_gif(str(ASSETS / "meme" / "tounge.gif"))
 tongue_total = sum(tongue_durations)
 start_time = time.time()
 

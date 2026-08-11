@@ -1,10 +1,13 @@
-import cv2 
-import mediapipe as mp 
+import cv2
+import mediapipe as mp
 import numpy as np
+from pathlib import Path
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
-base_options = python.BaseOptions(model_asset_path='hand_landmarker.task')
+ASSETS = Path(__file__).resolve().parent.parent
+
+base_options = python.BaseOptions(model_asset_path=str(ASSETS / "models" / "hand_landmarker.task"))
 
 options = vision.HandLandmarkerOptions(
     base_options = base_options,
@@ -16,7 +19,7 @@ options = vision.HandLandmarkerOptions(
 landmarker = vision.HandLandmarker.create_from_options(options)
 
 
-meme_image = cv2.imread("meme/staring.png")
+meme_image = cv2.imread(str(ASSETS / "meme" / "staring.png"))
 if meme_image is None:
     print("Error: Could not load meme image")
     exit()
@@ -85,18 +88,18 @@ while cap.isOpened():
                 #meme_image = cv2.imread("meme/thinking.png")
             if index_extended and middle_folded and ring_folded and pinky_folded:
                 gesture_text = "POINTING!"
-                meme_image = cv2.imread("meme/pointing.png")
+                meme_image = cv2.imread(str(ASSETS / "meme" / "pointing.png"))
             else:
                 guesture_text = ""
-                meme_image = cv2.imread("meme/staring.png")    
+                meme_image = cv2.imread(str(ASSETS / "meme" / "staring.png"))
 
             for lm in hand:
                 h, w, _ = frame.shape
                 cx, cy = int(lm.x * w), int(lm.y * h)
                 cv2.circle(frame, (cx, cy), 5, (0, 255, 0), -1)
     else:
-        meme_image = cv2.imread("meme/staring.png")
-        
+        meme_image = cv2.imread(str(ASSETS / "meme" / "staring.png"))
+
     frame_height, frame_width = frame.shape[:2]
     meme_resized = cv2.resize(meme_image, (frame_width, frame_height))
     combined = np.hstack([meme_resized, frame])
