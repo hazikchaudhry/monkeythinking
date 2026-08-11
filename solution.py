@@ -22,16 +22,26 @@ options = vision.HandLandmarkerOptions(
 
 landmarker = vision.HandLandmarker.create_from_options(options)
 
-# Open camera (try 0 if 1 doesn't work)
-cap = cv2.VideoCapture(1)
+# Open camera (index 0 is usually the built-in webcam; try a few if yours differs)
+def open_camera(max_index=3):
+    for index in range(max_index):
+        cap = cv2.VideoCapture(index)
+        if cap.isOpened():
+            width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+            height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            print(f"Camera opened at index {index} ({width}x{height})")
+            return cap
+        cap.release()
+    return None
+
+cap = open_camera()
 timestamp = 0
 
 # Check if camera opened
-if not cap.isOpened():
-    print("Error: Could not open camera")
+if cap is None:
+    print("Error: Could not open camera (tried indexes 0-2)")
     exit()
 
-print("Camera opened successfully!")
 print("Press 'q' to quit")
 
 # Main loop - runs continuously

@@ -20,7 +20,7 @@ options = vision.HandLandmarkerOptions(
 
 landmarker = vision.HandLandmarker.create_from_options(options)
 
-# Open camera (try 0 if 1 doesn't work)
+# Open camera (index 0 is usually the built-in webcam; try 1, 2... if that fails)
 
 
 # Check if camera opened
