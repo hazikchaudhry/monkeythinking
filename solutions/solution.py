@@ -7,13 +7,13 @@ from mediapipe.tasks.python import vision
 
 ASSETS = Path(__file__).resolve().parent.parent
 
-# Load the default meme image
+# Load meme/staring.png
 meme_image = cv2.imread(str(ASSETS / "meme" / "staring.png"))
 if meme_image is None:
     print("Error: Could not load meme image")
     exit()
 
-# Setup hand detection model
+# Setup hand detection
 base_options = python.BaseOptions(model_asset_path=str(ASSETS / "models" / "hand_landmarker.task"))
 
 options = vision.HandLandmarkerOptions(
@@ -25,7 +25,7 @@ options = vision.HandLandmarkerOptions(
 
 landmarker = vision.HandLandmarker.create_from_options(options)
 
-# Open camera (index 0 is usually the built-in webcam; try a few if yours differs)
+# Open camera (tries a few indexes in case index 0 isn't your webcam)
 def open_camera(max_index=3):
     for index in range(max_index):
         cap = cv2.VideoCapture(index)
@@ -47,32 +47,27 @@ if cap is None:
 
 print("Press 'q' to quit")
 
-# Main loop - runs continuously
+# Main loop
 while cap.isOpened():
-    # Capture frame from camera
+    # Capture a frame and detect hands
     valid, frame = cap.read()
-    
+
     if not valid:
         print("Warning: Could not read frame")
         break
-    
-    # Convert BGR to RGB (MediaPipe needs RGB)
+
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    
-    # Create MediaPipe image
     mp_image = mp.Image(
         image_format = mp.ImageFormat.SRGB,
         data = rgb_frame
     )
-    
-    # Detect hands in the frame
+
     result = landmarker.detect_for_video(mp_image, timestamp)
     timestamp += 1
-    
-    # If hands detected
+
+    # Check for pointing gesture and draw landmarks
     if result.hand_landmarks:
         for hand in result.hand_landmarks:
-            # Get finger landmark positions
             index_tip = hand[8]
             index_pip = hand[6]
             middle_tip = hand[12]
@@ -81,39 +76,31 @@ while cap.isOpened():
             ring_pip = hand[14]
             pinky_tip = hand[20]
             pinky_pip = hand[18]
-            
-            # Check if each finger is extended or folded
+
             index_extended = index_tip.y < index_pip.y
             middle_folded = middle_tip.y > middle_pip.y
             ring_folded = ring_tip.y > ring_pip.y
             pinky_folded = pinky_tip.y > pinky_pip.y
-            
-            # Check for pointing gesture and load appropriate meme
+
             if index_extended and middle_folded and ring_folded and pinky_folded:
                 meme_image = cv2.imread(str(ASSETS / "meme" / "pointing.png"))
             else:
                 meme_image = cv2.imread(str(ASSETS / "meme" / "staring.png"))
 
-            # Draw green circles on all hand landmarks
             for lm in hand:
                 h, w, _ = frame.shape
                 cx, cy = int(lm.x * w), int(lm.y * h)
                 cv2.circle(frame, (cx, cy), 5, (0, 255, 0), -1)
     else:
-        # No hands detected - show default meme
         meme_image = cv2.imread(str(ASSETS / "meme" / "staring.png"))
-    
-    # Resize meme to match frame size
+
+    # Combine meme and camera feed, then display
     frame_height, frame_width = frame.shape[:2]
     meme_resized = cv2.resize(meme_image, (frame_width, frame_height))
-    
-    # Combine meme and frame side-by-side
     combined = np.hstack([meme_resized, frame])
-    
-    # Display the result
+
     cv2.imshow('Think Monke', combined)
-    
-    # Exit if 'q' pressed
+
     if cv2.waitKey(5) & 0xFF == ord('q'):
         break
 
