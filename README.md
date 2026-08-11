@@ -16,15 +16,15 @@ macOS/Linux:
 ./setup.sh
 ```
 
-Windows (PowerShell):
+Windows: double-click `setup.bat`, or run it from a terminal:
 
-```powershell
-.\setup.ps1
+```bat
+setup.bat
 ```
 
-This prints a one-line install command if you don't have [uv](https://docs.astral.sh/uv/) yet, then `uv sync`s the pinned dependencies from `pyproject.toml`/`uv.lock` (fetching a matching Python version itself if needed) and checks that the model and meme assets are present.
+This prints a one-line install command if you don't have [uv](https://docs.astral.sh/uv/) yet, then `uv sync`s the pinned dependencies from `pyproject.toml`/`uv.lock` (fetching a matching Python version itself if needed) and checks that the model and meme assets are present. `setup.bat` just runs `setup.ps1` with PowerShell's script-execution restriction bypassed for that one run, so it works even on a machine where `.ps1` files are blocked by default.
 
-No uv, or can't install it? Use `./setup-pip.sh` (or `.\setup-pip.ps1` on Windows) instead — same checks, plain `venv` + `pip install -r requirements.txt`.
+No uv, or can't install it? Use `./setup-pip.sh` (macOS/Linux) or `setup-pip.bat` (Windows) instead — same checks, plain `venv` + `pip install -r requirements.txt`.
 
 ## Project Layout
 
@@ -63,4 +63,4 @@ Press 'q' to quit.
 - **Camera won't open**: the app tries indexes 0, 1, 2 automatically and prints which one worked. If none open, another app (Zoom/Teams/OBS) may be holding the webcam — close it and retry.
 - **macOS camera permission**: the first run triggers a one-time system permission prompt. If you missed it or said no, check System Settings > Privacy & Security > Camera.
 - **`ModuleNotFoundError` (pip fallback path only)**: the virtual environment isn't activated — run the `source` / `Activate.ps1` line above first. `uv run` doesn't need this, it handles the environment for you.
-- **Windows PowerShell blocks a script**: run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` once per terminal session, then retry.
+- **Windows PowerShell blocks a script**: use `setup.bat` / `setup-pip.bat` instead of running the `.ps1` files directly — they bypass this automatically. If you're invoking a `.ps1` directly some other way, run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` once per terminal session first.
