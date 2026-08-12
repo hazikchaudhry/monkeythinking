@@ -5,9 +5,10 @@
     <h3>BGR, not RGB</h3>
     <p>OpenCV loads and draws colors as <code>(B, G, R)</code>, not <code>(R, G, B)</code>. A "green" circle is <code>(0, 255, 0)</code> either way, but red and blue are swapped from what you'd expect.</p>
   </div>
-  <div class="placeholder" data-asset="assets/bgr-vs-rgb.png">
-    assets/bgr-vs-rgb.png
-  </div>
+  <figure class="image-reference">
+    <img src="assets/bgr-vs-rgb.png" alt="Comparison of BGR and RGB channel order">
+    <figcaption>OpenCV reads blue, green, and red — in that order.</figcaption>
+  </figure>
 
   <h2>Try it — same pixels, different order</h2>
   <p class="lead">These sliders are laid out Blue, Green, Red — to match the order OpenCV actually reads them in, not the Red-Green-Blue order you'd normally expect. Same three numbers per pixel, just reordered.</p>

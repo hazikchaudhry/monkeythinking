@@ -2,6 +2,14 @@
   <h1>Setup</h1>
   <p class="lead">Get your machine ready before we start coding.</p>
 
+  <section class="box getting-started">
+    <h3>Get the project</h3>
+    <p>Everything for this workshop lives in the <a href="https://github.com/hazikchaudhry/monkeythinking" target="_blank" rel="noopener noreferrer">Monkey Thinking GitHub repository</a>.</p>
+    <pre class="command-block"><code>git clone https://github.com/hazikchaudhry/monkeythinking.git
+cd monkeythinking</code></pre>
+    <p class="hint">Run these commands once in Terminal (macOS/Linux), PowerShell, or Command Prompt (Windows) before following the setup steps below.</p>
+  </section>
+
   <p class="lead">What are you on?</p>
   <div class="os-picker">
     <button class="os-btn active" data-os="mac">macOS</button>
@@ -43,6 +51,27 @@
       <li>Can't install <code>uv</code>? Run <code>./setup-pip.sh</code> instead — same checks, plain <code>venv</code> + pip (needs Python 3 already on the machine)</li>
     </ol>
   </div>
+
+  <section class="box run-project">
+    <h3>Run the starter project</h3>
+    <p>After setup finishes, open <code>starter_code.py</code>, fill in the blanks, then run:</p>
+    <pre class="command-block"><code>uv run python starter_code.py</code></pre>
+    <p class="hint">Using the pip fallback instead? Activate <code>.venv</code> first, then run <code>python starter_code.py</code>. Press <code>q</code> to close the camera window.</p>
+  </section>
+
+  <details class="solutions-dropdown">
+    <summary>Solution files <span>Open when you need a hint or want to compare your work</span></summary>
+    <div class="solutions-content">
+      <p>The finished starter-project answer is <a href="https://github.com/hazikchaudhry/monkeythinking/blob/main/solutions/solution.py" target="_blank" rel="noopener noreferrer"><code>solutions/solution.py</code></a>. Run it with:</p>
+      <pre class="command-block"><code>uv run python solutions/solution.py</code></pre>
+      <ul class="solution-list">
+        <li><a href="https://github.com/hazikchaudhry/monkeythinking/blob/main/solutions/solution.py" target="_blank" rel="noopener noreferrer"><code>solution.py</code></a> — completed starter project</li>
+        <li><a href="https://github.com/hazikchaudhry/monkeythinking/blob/main/solutions/main.py" target="_blank" rel="noopener noreferrer"><code>main.py</code></a> — an earlier working version</li>
+        <li><a href="https://github.com/hazikchaudhry/monkeythinking/blob/main/solutions/workshop_simple.ipynb" target="_blank" rel="noopener noreferrer"><code>workshop_simple.ipynb</code></a> — the project as a Jupyter notebook</li>
+        <li><a href="https://github.com/hazikchaudhry/monkeythinking/blob/main/solutions/devs.py" target="_blank" rel="noopener noreferrer"><code>devs.py</code></a> — the extended DEVS version</li>
+      </ul>
+    </div>
+  </details>
 
   <div class="placeholder" data-asset="assets/setup-screenshot.png">
     assets/setup-screenshot.png

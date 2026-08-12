@@ -50,4 +50,18 @@ function initOsPicker() {
   });
 }
 
+function initEntryScreen() {
+  const entryScreen = document.getElementById("entry-screen");
+  const enterButton = document.getElementById("enter-workshop");
+
+  if (!entryScreen || !enterButton) return;
+
+  enterButton.addEventListener("click", () => {
+    entryScreen.classList.add("hidden");
+    enterButton.focus();
+    setTimeout(() => entryScreen.remove(), 300);
+  });
+}
+
+initEntryScreen();
 loadTabs();
