@@ -1,0 +1,33 @@
+<section class="panel" id="images">
+  <h1>Images &amp; Colors</h1>
+  <p class="lead">A couple of OpenCV gotchas worth knowing before you write this code.</p>
+  <div class="box">
+    <h3>BGR, not RGB</h3>
+    <p>OpenCV loads and draws colors as <code>(B, G, R)</code>, not <code>(R, G, B)</code>. A "green" circle is <code>(0, 255, 0)</code> either way, but red and blue are swapped from what you'd expect.</p>
+  </div>
+  <div class="placeholder" data-asset="assets/bgr-vs-rgb.png">
+    assets/bgr-vs-rgb.png
+  </div>
+
+  <h2>Try it — same pixels, different order</h2>
+  <p class="lead">These sliders are laid out Blue, Green, Red — to match the order OpenCV actually reads them in, not the Red-Green-Blue order you'd normally expect. Same three numbers per pixel, just reordered.</p>
+
+  <div class="pixel-lab">
+    <canvas id="pixelLabCanvas"></canvas>
+    <div class="pixel-lab-controls">
+      <div class="pixel-lab-row channel-b">
+        <span>Blue</span>
+        <input type="range" id="pixelLabB" min="0" max="200" value="100">
+      </div>
+      <div class="pixel-lab-row channel-g">
+        <span>Green</span>
+        <input type="range" id="pixelLabG" min="0" max="200" value="100">
+      </div>
+      <div class="pixel-lab-row channel-r">
+        <span>Red</span>
+        <input type="range" id="pixelLabR" min="0" max="200" value="100">
+      </div>
+      <button class="pixel-lab-reset" id="pixelLabReset">Reset</button>
+    </div>
+  </div>
+</section>

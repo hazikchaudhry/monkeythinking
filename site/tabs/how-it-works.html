@@ -1,0 +1,843 @@
+<section class="panel" id="how-it-works">
+  <h1>How It Works</h1>
+  <p class="lead">To a computer, an image isn't a picture — it's just a grid of numbers.</p>
+
+  <div class="step-viewer" data-steps='[
+    {"title":"TRAINING","caption":"Before any of this ran, the model was shown thousands of labeled hand photos and adjusted itself until its guesses matched -- that is training. Everything else here happens using what it already learned."},
+    {"title":"FRAME","caption":"A photo from your webcam is really just a grid of numbers -- Red, Green, and Blue values for every pixel, hand or no hand."},
+    {"title":"SCANNING","caption":"The trained model sweeps across the whole grid, comparing every region against the pattern it learned as a hand."},
+    {"title":"INSIDE THE MODEL","caption":"Under the hood, it passes the pixels through several stages -- from raw color values, to edges and shapes, to a rough skeleton of key points."},
+    {"title":"DETECTED","caption":"It locks onto the one region that matches, with a confidence score for how sure it is -- everything else is discarded as background."}
+  ]'>
+    <div class="step-header">
+      <span class="step-counter">Step 1 of 5</span>
+      <span class="step-title">TRAINING</span>
+    </div>
+
+    <div class="step-visual">
+
+      <div class="step-scene active" data-step="0">
+        <div class="training-scene">
+          <div class="training-examples">
+            <div class="example-card" style="background:#c9a6ff"><span class="example-check">✓</span></div>
+            <div class="example-card" style="background:#9b6bf2"><span class="example-check">✓</span></div>
+            <div class="example-card" style="background:#7c3aed"><span class="example-check">✓</span></div>
+            <div class="example-card" style="background:#a879e8"><span class="example-check">✓</span></div>
+            <div class="example-card" style="background:#b98ef5"><span class="example-check">✓</span></div>
+          </div>
+          <div class="training-bar-track">
+            <div class="training-bar-fill"></div>
+          </div>
+          <div class="training-label">thousands of labeled hand photos</div>
+        </div>
+      </div>
+
+      <div class="step-scene" data-step="1">
+        <div class="pixel-grid hand-grid">
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+        </div>
+      </div>
+
+      <div class="step-scene" data-step="2">
+        <div class="pixel-grid hand-grid scanning">
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px hand-px" style="background:#a879e8"></div>
+          <div class="px hand-px" style="background:#c9a6ff"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#b98ef5"></div>
+          <div class="px hand-px" style="background:#9b6bf2"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#2c2440"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#1c1728"></div>
+          <div class="px noise-px" style="background:#241d33"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="px noise-px" style="background:#332a4a"></div>
+          <div class="scan-line"></div>
+        </div>
+      </div>
+
+      <div class="step-scene" data-step="3">
+        <div class="calc-flow">
+          <div class="calc-stage">
+            <div class="calc-label">PIXELS</div>
+            <div class="mini-grid">
+              <div class="mini-px" style="background:#2c2440"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#2c2440"></div>
+              <div class="mini-px" style="background:#332a4a"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#3d3266"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#241d33"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#241d33"></div>
+              <div class="mini-px" style="background:#3d3266"></div>
+              <div class="mini-px" style="background:#332a4a"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#2c2440"></div>
+              <div class="mini-px" style="background:#2c2440"></div>
+              <div class="mini-px" style="background:#3d3266"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#3d3266"></div>
+              <div class="mini-px" style="background:#3d3266"></div>
+              <div class="mini-px" style="background:#2c2440"></div>
+              <div class="mini-px" style="background:#2c2440"></div>
+              <div class="mini-px" style="background:#2c2440"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#3d3266"></div>
+              <div class="mini-px" style="background:#241d33"></div>
+              <div class="mini-px" style="background:#241d33"></div>
+              <div class="mini-px" style="background:#2c2440"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+              <div class="mini-px" style="background:#241d33"></div>
+              <div class="mini-px" style="background:#332a4a"></div>
+              <div class="mini-px" style="background:#241d33"></div>
+              <div class="mini-px" style="background:#332a4a"></div>
+              <div class="mini-px" style="background:#3d3266"></div>
+              <div class="mini-px" style="background:#4a3d68"></div>
+            </div>
+          </div>
+          <div class="flow-arrow calc-arrow">→</div>
+          <div class="calc-stage">
+            <div class="calc-label">FEATURES</div>
+            <div class="mini-grid">
+              <div class="mini-px dim-px" style="background:#2c2440"></div>
+              <div class="mini-px dim-px" style="background:#4a3d68"></div>
+              <div class="mini-px dim-px" style="background:#4a3d68"></div>
+              <div class="mini-px dim-px" style="background:#2c2440"></div>
+              <div class="mini-px dim-px" style="background:#332a4a"></div>
+              <div class="mini-px dim-px" style="background:#4a3d68"></div>
+              <div class="mini-px dim-px" style="background:#3d3266"></div>
+              <div class="mini-px feature-hit"></div>
+              <div class="mini-px feature-hit"></div>
+              <div class="mini-px dim-px" style="background:#4a3d68"></div>
+              <div class="mini-px dim-px" style="background:#241d33"></div>
+              <div class="mini-px dim-px" style="background:#3d3266"></div>
+              <div class="mini-px dim-px" style="background:#332a4a"></div>
+              <div class="mini-px feature-hit"></div>
+              <div class="mini-px feature-hit"></div>
+              <div class="mini-px feature-hit"></div>
+              <div class="mini-px dim-px" style="background:#3d3266"></div>
+              <div class="mini-px dim-px" style="background:#4a3d68"></div>
+              <div class="mini-px dim-px" style="background:#4a3d68"></div>
+              <div class="mini-px feature-hit"></div>
+              <div class="mini-px feature-hit"></div>
+              <div class="mini-px feature-hit"></div>
+              <div class="mini-px dim-px" style="background:#2c2440"></div>
+              <div class="mini-px dim-px" style="background:#2c2440"></div>
+              <div class="mini-px dim-px" style="background:#4a3d68"></div>
+              <div class="mini-px dim-px" style="background:#3d3266"></div>
+              <div class="mini-px dim-px" style="background:#241d33"></div>
+              <div class="mini-px feature-hit"></div>
+              <div class="mini-px dim-px" style="background:#2c2440"></div>
+              <div class="mini-px dim-px" style="background:#4a3d68"></div>
+              <div class="mini-px dim-px" style="background:#241d33"></div>
+              <div class="mini-px dim-px" style="background:#332a4a"></div>
+              <div class="mini-px dim-px" style="background:#241d33"></div>
+              <div class="mini-px dim-px" style="background:#332a4a"></div>
+              <div class="mini-px dim-px" style="background:#3d3266"></div>
+              <div class="mini-px dim-px" style="background:#4a3d68"></div>
+            </div>
+          </div>
+          <div class="flow-arrow calc-arrow">→</div>
+          <div class="calc-stage">
+            <div class="calc-label">STRUCTURE</div>
+            <svg class="structure-svg" viewBox="0 0 100 100">
+              <line x1="50" y1="72" x2="50" y2="46" class="struct-line"></line>
+              <line x1="50" y1="46" x2="28" y2="22" class="struct-line"></line>
+              <line x1="50" y1="46" x2="42" y2="14" class="struct-line"></line>
+              <line x1="50" y1="46" x2="58" y2="14" class="struct-line"></line>
+              <line x1="50" y1="46" x2="72" y2="24" class="struct-line"></line>
+              <circle cx="50" cy="72" r="6" class="struct-dot"></circle>
+              <circle cx="50" cy="46" r="5" class="struct-dot"></circle>
+              <circle cx="28" cy="22" r="5" class="struct-dot"></circle>
+              <circle cx="42" cy="14" r="5" class="struct-dot"></circle>
+              <circle cx="58" cy="14" r="5" class="struct-dot"></circle>
+              <circle cx="72" cy="24" r="5" class="struct-dot"></circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-scene" data-step="4">
+        <div class="detection-box">
+          <div class="pixel-grid hand-grid">
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px hand-px" style="background:#6fdc8c"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1c1728"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="px noise-px" style="background:#1a1625"></div>
+            <div class="detection-frame" style="left:14.29%;top:12.5%;width:71.43%;height:75%;"></div>
+          </div>
+          <div class="detection-label">HAND DETECTED — 97%</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="step-caption">Before any of this ran, the model was shown thousands of labeled hand photos and adjusted itself until its guesses matched — that is training. Everything else here happens using what it already learned.</p>
+
+    <div class="step-nav">
+      <button class="step-btn step-back">← Back</button>
+      <button class="step-btn step-next">Next →</button>
+    </div>
+  </div>
+
+  <p>Once the model has detected a hand, it does not just say "yes, hand" — it hands back 21 precise (x, y) coordinates for it. Landmarks and Gesture Logic cover what happens next.</p>
+</section>

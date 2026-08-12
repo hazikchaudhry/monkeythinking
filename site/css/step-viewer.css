@@ -1,0 +1,349 @@
+.step-viewer {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  box-shadow: 4px 4px 0 var(--surface-alt);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.step-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.step-counter {
+  font-family: "Press Start 2P", "Courier New", monospace;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+}
+
+.step-title {
+  font-family: "Press Start 2P", "Courier New", monospace;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.step-visual {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-alt);
+  border: 2px dashed var(--border);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.step-scene {
+  display: none;
+  width: 100%;
+}
+
+.step-scene.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-caption {
+  color: var(--text-dim);
+  margin: 0 0 16px;
+}
+
+.step-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.step-btn {
+  font-family: "Press Start 2P", "Courier New", monospace;
+  background: var(--surface-alt);
+  color: var(--text-dim);
+  border: 2px solid var(--border);
+  padding: 10px 16px;
+  font-size: 0.65rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--bg);
+}
+
+.step-btn:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.step-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ===== Pixelated hand grid, sitting in a wider "camera frame" of noise ===== */
+
+.pixel-grid {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  max-width: 340px;
+  overflow: hidden;
+}
+
+.hand-grid {
+  grid-template-columns: repeat(14, 1fr);
+}
+
+.px {
+  aspect-ratio: 1;
+}
+
+/* ===== Detection scan + result ===== */
+
+.pixel-grid.scanning {
+  position: relative;
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 10px 2px var(--accent);
+  animation: scan 2.5s linear infinite;
+}
+
+@keyframes scan {
+  0% { top: 0%; }
+  50% { top: 96%; }
+  100% { top: 0%; }
+}
+
+.detection-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.detection-frame {
+  position: absolute;
+  border: 2px solid #6fdc8c;
+  box-shadow: 0 0 14px 1px rgba(111, 220, 140, 0.6);
+  pointer-events: none;
+}
+
+.detection-label {
+  font-family: "Press Start 2P", "Courier New", monospace;
+  font-size: 0.6rem;
+  color: #6fdc8c;
+  border: 2px solid #6fdc8c;
+  padding: 6px 10px;
+}
+
+/* ===== Training step ===== */
+
+.training-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.training-examples {
+  display: flex;
+  gap: 10px;
+}
+
+.example-card {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border);
+  box-shadow: 3px 3px 0 var(--bg);
+}
+
+.example-check {
+  color: #14301f;
+  font-weight: bold;
+  font-size: 1.1rem;
+  opacity: 0;
+  animation: check-in 3s ease-in-out infinite;
+}
+
+.training-examples .example-card:nth-child(1) .example-check { animation-delay: 0s; }
+.training-examples .example-card:nth-child(2) .example-check { animation-delay: 0.25s; }
+.training-examples .example-card:nth-child(3) .example-check { animation-delay: 0.5s; }
+.training-examples .example-card:nth-child(4) .example-check { animation-delay: 0.75s; }
+.training-examples .example-card:nth-child(5) .example-check { animation-delay: 1s; }
+
+@keyframes check-in {
+  0%, 8% { opacity: 0; transform: scale(0.5); }
+  18%, 70% { opacity: 1; transform: scale(1); }
+  85%, 100% { opacity: 0; transform: scale(0.5); }
+}
+
+.training-bar-track {
+  width: 100%;
+  max-width: 280px;
+  height: 14px;
+  border: 2px solid var(--border);
+  background: var(--bg);
+}
+
+.training-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  animation: bar-fill 3s ease-in-out infinite;
+}
+
+@keyframes bar-fill {
+  0% { width: 8%; }
+  85% { width: 97%; }
+  100% { width: 97%; }
+}
+
+.training-label {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+/* ===== Inside-the-model calculation flow ===== */
+
+.calc-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+.calc-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.calc-label {
+  font-family: "Press Start 2P", "Courier New", monospace;
+  font-size: 0.55rem;
+  color: var(--accent);
+}
+
+.calc-arrow {
+  margin: 0;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px;
+  width: 108px;
+}
+
+.mini-px {
+  aspect-ratio: 1;
+}
+
+.mini-px.dim-px {
+  opacity: 0.35;
+}
+
+.mini-px.feature-hit {
+  background: #6fdc8c;
+  animation: feature-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes feature-pulse {
+  0%, 100% { opacity: 0.6; box-shadow: 0 0 0 rgba(111, 220, 140, 0); }
+  50% { opacity: 1; box-shadow: 0 0 6px 1px rgba(111, 220, 140, 0.7); }
+}
+
+.structure-svg {
+  width: 108px;
+  height: 108px;
+}
+
+.struct-line {
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.struct-dot {
+  fill: #6fdc8c;
+  animation: struct-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes struct-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* ===== Landmark image ===== */
+
+.step-hand {
+  max-width: 260px;
+  margin: 0;
+}
+
+/* ===== Step 4: decision flow ===== */
+
+.decision-flow {
+  text-align: center;
+  width: 100%;
+}
+
+.flow-box {
+  display: inline-block;
+  font-family: "Press Start 2P", "Courier New", monospace;
+  font-size: 0.6rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  padding: 10px 14px;
+  color: var(--accent);
+}
+
+.flow-box.condition {
+  font-family: "SF Mono", Consolas, "Courier New", monospace;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.flow-arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin: 6px 0;
+}
+
+.flow-branches {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 4px;
+}
+
+.flow-branch p {
+  margin: 6px 0 0;
+  color: var(--text-dim);
+}
+
+.flow-box.yes {
+  border-color: #6fdc8c;
+  color: #6fdc8c;
+}
+
+.flow-box.no {
+  border-color: #ff8a8a;
+  color: #ff8a8a;
+}
+
+@media (max-width: 640px) {
+  .flow-branches {
+    gap: 16px;
+  }
+}

@@ -1,0 +1,56 @@
+<section class="panel" id="gesture">
+  <h1>Extended vs. Folded</h1>
+  <p class="lead">The whole gesture-detection trick comes down to one comparison.</p>
+  <div class="box">
+    <p><code>tip.y &lt; pip.y</code> → finger is extended (pointing up)</p>
+    <p><code>tip.y &gt; pip.y</code> → finger is folded</p>
+  </div>
+  <p>Y = 0 is at the <strong>top</strong> of the image, so a smaller y means higher up on screen.</p>
+  <div class="placeholder" data-asset="assets/extended-vs-folded.png">
+    assets/extended-vs-folded.png
+  </div>
+
+  <h2>From detection to decision</h2>
+  <div class="step-viewer" data-steps='[
+    {"title":"COORDINATES","caption":"It outputs structured data: 21 (x, y) points, one per knuckle, fingertip, and wrist."},
+    {"title":"YOUR CODE","caption":"Your code checks those coordinates against a condition and decides what to do."}
+  ]'>
+    <div class="step-header">
+      <span class="step-counter">Step 1 of 2</span>
+      <span class="step-title">COORDINATES</span>
+    </div>
+
+    <div class="step-visual">
+      <div class="step-scene active" data-step="0">
+        <img class="diagram-image step-hand" src="assets/hand.png" alt="21 hand landmark coordinates">
+      </div>
+
+      <div class="step-scene" data-step="1">
+        <div class="decision-flow">
+          <div class="flow-box">COORDINATES</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box condition">index_tip.y &lt; index_pip.y ?</div>
+          <div class="flow-branches">
+            <div class="flow-branch">
+              <div class="flow-arrow">↓</div>
+              <div class="flow-box yes">YES</div>
+              <p>"POINTING!"</p>
+            </div>
+            <div class="flow-branch">
+              <div class="flow-arrow">↓</div>
+              <div class="flow-box no">NO</div>
+              <p>not pointing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="step-caption">It outputs structured data: 21 (x, y) points, one per knuckle, fingertip, and wrist.</p>
+
+    <div class="step-nav">
+      <button class="step-btn step-back">← Back</button>
+      <button class="step-btn step-next">Next →</button>
+    </div>
+  </div>
+</section>

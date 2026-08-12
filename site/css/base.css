@@ -1,0 +1,46 @@
+:root {
+  --bg: #100c1a;
+  --surface: #1c1728;
+  --surface-alt: #241d33;
+  --border: #4a3d68;
+  --accent: #9b6bf2;
+  --accent-strong: #7c3aed;
+  --text: #ece7f7;
+  --text-dim: #a99fc2;
+  --grid-line: rgba(155, 107, 242, 0.07);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(rgba(155, 107, 242, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 107, 242, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 96px 96px, 96px 96px;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+/* Pixel font reserved for headings/labels/nav — body copy stays on a normal
+   readable font (see body above). */
+.pixel-heading, .brand, .tab-btn, .os-btn, .panel h1, .panel h2, .box h3,
+.devs-badge {
+  font-family: "Press Start 2P", "Courier New", monospace;
+}
+
+code {
+  font-family: "SF Mono", Consolas, "Courier New", monospace;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  font-size: 0.85em;
+  color: var(--accent);
+}

@@ -1,0 +1,50 @@
+<section class="panel active" id="setup">
+  <h1>Setup</h1>
+  <p class="lead">Get your machine ready before we start coding.</p>
+
+  <p class="lead">What are you on?</p>
+  <div class="os-picker">
+    <button class="os-btn active" data-os="mac">macOS</button>
+    <button class="os-btn" data-os="windows">Windows</button>
+    <button class="os-btn" data-os="linux">Linux</button>
+  </div>
+
+  <div class="os-panel active" id="mac">
+    <ol class="checklist">
+      <li>Clone the repo, then <code>cd monkeythinking</code></li>
+      <li>Run <code>./setup.sh</code></li>
+      <li>No <code>uv</code>? It prints a one-line install command:<br><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code><br>Run it, restart your terminal, then re-run <code>./setup.sh</code></li>
+      <li><code>uv sync</code> runs — installs the pinned dependencies, fetching a matching Python for you if you don't already have one</li>
+      <li>Confirm you see <code>All required files present.</code></li>
+      <li>First time you run the app, macOS asks for camera permission — click Allow. Missed it? System Settings → Privacy &amp; Security → Camera</li>
+      <li>Can't install <code>uv</code>? Run <code>./setup-pip.sh</code> instead — same checks, plain <code>venv</code> + pip (needs Python 3 already on the machine)</li>
+    </ol>
+  </div>
+
+  <div class="os-panel" id="windows">
+    <ol class="checklist">
+      <li>Clone the repo, then <code>cd monkeythinking</code></li>
+      <li>Double-click <code>setup.bat</code> (or run it from a terminal) — it bypasses PowerShell's script-execution block automatically, no policy errors to deal with</li>
+      <li>No <code>uv</code>? It prints a one-line install command, run it in PowerShell, restart your terminal, then re-run <code>setup.bat</code></li>
+      <li><code>uv sync</code> runs — installs the pinned dependencies, fetching a matching Python for you if you don't already have one</li>
+      <li>Confirm you see <code>All required files present.</code></li>
+      <li>The window stays open at the end so you can read the output before it closes</li>
+      <li>Can't install <code>uv</code>? Run <code>setup-pip.bat</code> instead — same checks, plain <code>venv</code> + pip. (If typing <code>python</code> opens the Microsoft Store, Python isn't actually installed yet.)</li>
+    </ol>
+  </div>
+
+  <div class="os-panel" id="linux">
+    <ol class="checklist">
+      <li>Clone the repo, then <code>cd monkeythinking</code></li>
+      <li>Run <code>./setup.sh</code> — same script as macOS, no differences</li>
+      <li>No <code>uv</code>? It prints a one-line install command:<br><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code><br>Run it, restart your terminal, then re-run <code>./setup.sh</code></li>
+      <li><code>uv sync</code> runs — installs the pinned dependencies, fetching a matching Python for you if you don't already have one</li>
+      <li>Confirm you see <code>All required files present.</code></li>
+      <li>Can't install <code>uv</code>? Run <code>./setup-pip.sh</code> instead — same checks, plain <code>venv</code> + pip (needs Python 3 already on the machine)</li>
+    </ol>
+  </div>
+
+  <div class="placeholder" data-asset="assets/setup-screenshot.png">
+    assets/setup-screenshot.png
+  </div>
+</section>
